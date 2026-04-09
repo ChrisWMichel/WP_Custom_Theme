@@ -1,0 +1,28 @@
+{
+  "name": "custom-theme",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "wp-scripts start",
+    "build": "wp-scripts build",
+    "packages-update": "wp-scripts packages-update"
+  },
+  "keywords": [],
+  "author": "Chris Michel",
+  "license": "ISC",
+  "devDependencies": {
+    "@wordpress/scripts": "^31.8.0"
+  },
+  "overrides": {
+    "@sentry/node": {
+      "minimatch": "^9.0.7"
+    },
+    "@typescript-eslint/typescript-estree": {
+      "minimatch": "^9.0.7"
+    },
+    "markdownlint-cli": "^0.45.0",
+    "serialize-javascript": "^7.0.5",
+    "webpack-dev-server": "^5.2.2"
+  }
+}

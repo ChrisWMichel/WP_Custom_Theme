@@ -1,0 +1,24 @@
+/*!**************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./src/blocks/fancy-header/main.css ***!
+  \**************************************************************************************************************************************************************************************/
+/* Fancy Header */
+.fancy-header {
+  display: inline-block;
+  width: -moz-max-content;
+  width: max-content;
+  background-image:
+    linear-gradient(transparent, transparent),
+    linear-gradient(var(--underline-color, #f87171), var(--underline-color, #f87171));
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  background-size: 0 3px;
+  font-size: 1.875rem !important;
+  transition: background-size 0.5s ease-in-out;
+}
+.fancy-header:hover {
+  background-size: 100% 3px;
+}
+
+/*# sourceMappingURL=index.css.map*/
