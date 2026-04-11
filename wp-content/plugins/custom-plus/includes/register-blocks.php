@@ -13,6 +13,13 @@ function custom_plus_register_blocks() {
             get_stylesheet_directory() . '/build/blocks/search-form/block.json',
             CUSTOM_PLUS_PLUGIN_DIR . 'build/blocks/search-form/block.json',
         ],
+            'page-header' => [
+                'options' => [
+                    'render_callback' => 'custom_plus_render_page_header_cb',
+                ],
+                get_stylesheet_directory() . '/build/blocks/page-header/block.json',
+                CUSTOM_PLUS_PLUGIN_DIR . 'build/blocks/page-header/block.json',
+            ],
     ];
 
     foreach ( $blocks as $block_paths ) {

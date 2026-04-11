@@ -17,8 +17,12 @@ if(!function_exists('add_action')) {
 define('CUSTOM_PLUS_VERSION', '1.0.0');
 define('CUSTOM_PLUS_PLUGIN_DIR', plugin_dir_path(__FILE__));
 
-require_once(CUSTOM_PLUS_PLUGIN_DIR . 'includes/register-blocks.php');
-require_once(CUSTOM_PLUS_PLUGIN_DIR . 'includes/blocks/search-form.php');
+$rootFiles = glob(CUSTOM_PLUS_PLUGIN_DIR . 'includes/*.php');
+$subdirectory = glob(CUSTOM_PLUS_PLUGIN_DIR . 'includes/**/*.php', GLOB_BRACE);
+$allFiles = array_merge($rootFiles, $subdirectory);
 
+foreach ( $allFiles as $filename ) {
+    require_once $filename;
+}
 
 add_action('init', 'custom_plus_register_blocks');

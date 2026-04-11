@@ -127,9 +127,9 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ },
 
-/***/ "./src/blocks/search-form/main.css"
+/***/ "./src/blocks/page-header/main.css"
 /*!*****************************************!*\
-  !*** ./src/blocks/search-form/main.css ***!
+  !*** ./src/blocks/page-header/main.css ***!
   \*****************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
@@ -186,16 +186,6 @@ module.exports = window["wp"]["components"];
 (module) {
 
 module.exports = window["wp"]["i18n"];
-
-/***/ },
-
-/***/ "./src/blocks/search-form/block.json"
-/*!*******************************************!*\
-  !*** ./src/blocks/search-form/block.json ***!
-  \*******************************************/
-(module) {
-
-module.exports = /*#__PURE__*/JSON.parse('{"name":"custom-plus/search-form","apiVersion":3,"version":"1.0.0","title":"CT-Search Form","category":"widgets","description":"Adds a search form to your site.","keywords":["search","form","widget"],"textdomain":"custom-plus","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./index.css","attributes":{"bgColor":{"type":"string","default":"#f87171"},"textColor":{"type":"string","default":"#ffffff"},"buttonText":{"type":"string","default":"Search"},"buttonBgColor":{"type":"string","default":"#f87171"},"buttonTextColor":{"type":"string","default":"#ffffff"}},"example":{"attributes":{"bgColor":"#f87171","textColor":"#ffffff","buttonText":"Search","buttonBgColor":"#f87171","buttonTextColor":"#ffffff"}}}');
 
 /***/ }
 
@@ -277,7 +267,7 @@ var __webpack_exports__ = {};
 // This entry needs to be wrapped in an IIFE because it needs to be isolated against other modules in the chunk.
 (() => {
 /*!*****************************************!*\
-  !*** ./src/blocks/search-form/index.js ***!
+  !*** ./src/blocks/page-header/index.js ***!
   \*****************************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
@@ -288,11 +278,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _icons__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../icons */ "./src/icons.js");
-/* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./block.json */ "./src/blocks/search-form/block.json");
-/* harmony import */ var _main_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./main.css */ "./src/blocks/search-form/main.css");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _icons_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../icons.js */ "./src/icons.js");
+/* harmony import */ var _main_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./main.css */ "./src/blocks/page-header/main.css");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__);
 
 
 
@@ -300,90 +289,47 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.registerBlockType)(_block_json__WEBPACK_IMPORTED_MODULE_5__.name, {
-  icon: _icons__WEBPACK_IMPORTED_MODULE_4__["default"].search,
+(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.registerBlockType)('custom-plus/page-header', {
+  icon: _icons_js__WEBPACK_IMPORTED_MODULE_4__["default"].pageHeader,
   edit: ({
     attributes,
     setAttributes
   }) => {
     const {
-      bgColor,
-      textColor,
-      buttonText,
-      buttonBgColor,
-      buttonTextColor
+      content,
+      showCategory
     } = attributes;
     const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)({
-      className: "wp-block-udemy-plus-search-form",
-      style: {
-        backgroundColor: bgColor,
-        color: textColor
-      }
+      className: 'wp-block-udemy-plus-page-header'
     });
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
-          title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Button Settings", "custom-plus"),
-          initialOpen: true,
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
-            __next40pxDefaultSize: true,
-            __nextHasNoMarginBottom: true,
-            label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Button Text", "custom-plus"),
-            value: buttonText,
-            onChange: value => setAttributes({
-              buttonText: value
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
+          title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('General Settings', 'custom-plus'),
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ToggleControl, {
+            label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Show Category', 'custom-plus'),
+            checked: showCategory,
+            onChange: showCategory => setAttributes({
+              showCategory
+            }),
+            help: showCategory ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Category will be displayed instead of the heading', 'custom-plus') : (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Heading will be displayed instead of the category', 'custom-plus')
+          })
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+        ...blockProps,
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+          className: "inner-page-header",
+          children: showCategory ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h1", {
+            children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Category: Some Category', 'custom-plus')
+          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText, {
+            tagName: "h1",
+            placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Enter heading...", "custom-plus"),
+            value: content,
+            onChange: content => setAttributes({
+              content
             })
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.PanelColorSettings, {
-          title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Color Settings", "custom-plus"),
-          initialOpen: true,
-          colorSettings: [{
-            value: bgColor,
-            onChange: value => setAttributes({
-              bgColor: value
-            }),
-            label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Block Background Color", "custom-plus")
-          }, {
-            value: textColor,
-            onChange: value => setAttributes({
-              textColor: value
-            }),
-            label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Block Text Color", "custom-plus")
-          }, {
-            value: buttonBgColor,
-            onChange: value => setAttributes({
-              buttonBgColor: value
-            }),
-            label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Button Background Color", "custom-plus")
-          }, {
-            value: buttonTextColor,
-            onChange: value => setAttributes({
-              buttonTextColor: value
-            }),
-            label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Button Text Color", "custom-plus")
-          }]
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-        ...blockProps,
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h1", {
-          children: "Search: Your search term here"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("form", {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
-            type: "text",
-            placeholder: "Search"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-            className: "btn-wrapper",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
-              type: "submit",
-              style: {
-                backgroundColor: buttonBgColor,
-                color: buttonTextColor
-              },
-              children: buttonText
-            })
-          })]
-        })]
+        })
       })]
     });
   },
@@ -391,65 +337,17 @@ __webpack_require__.r(__webpack_exports__);
     attributes
   }) => {
     const {
-      bgColor,
-      textColor,
-      buttonText,
-      buttonBgColor,
-      buttonTextColor
+      content
     } = attributes;
     const blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save({
-      className: "wp-block-udemy-plus-search-form",
-      style: {
-        backgroundColor: bgColor,
-        color: textColor
-      }
+      className: "wp-block-udemy-plus-page-header"
     });
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText.Content, {
       ...blockProps,
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h1", {
-        children: "Search: Your search term here"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("form", {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
-          type: "text",
-          placeholder: "Search"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-          className: "btn-wrapper",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
-            type: "submit",
-            style: {
-              backgroundColor: buttonBgColor,
-              color: buttonTextColor
-            },
-            children: buttonText
-          })
-        })]
-      })]
+      tagName: "h1",
+      value: content
     });
-  },
-  deprecated: [{
-    save: () => {
-      const blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save({
-        className: "wp-block-udemy-plus-search-form"
-      });
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-        ...blockProps,
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h1", {
-          children: "Search: Your search term here"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("form", {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
-            type: "text",
-            placeholder: "Search"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-            className: "btn-wrapper",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
-              type: "submit",
-              children: "Search"
-            })
-          })]
-        })]
-      });
-    }
-  }]
+  }
 });
 })();
 
