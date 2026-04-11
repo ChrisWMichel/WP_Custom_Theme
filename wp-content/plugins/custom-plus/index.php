@@ -18,6 +18,7 @@ define('CUSTOM_PLUS_VERSION', '1.0.0');
 define('CUSTOM_PLUS_PLUGIN_DIR', plugin_dir_path(__FILE__));
 
 require_once(CUSTOM_PLUS_PLUGIN_DIR . 'includes/register-blocks.php');
+require_once(CUSTOM_PLUS_PLUGIN_DIR . 'includes/blocks/search-form.php');
 
 
 add_action('init', 'custom_plus_register_blocks');
