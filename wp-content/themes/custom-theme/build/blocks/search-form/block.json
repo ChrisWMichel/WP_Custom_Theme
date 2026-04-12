@@ -1,0 +1,48 @@
+{
+  "name": "custom-plus/search-form",
+  "apiVersion": 3,
+  "version": "1.0.0",
+  "title": "CT-Search Form",
+  "category": "widgets",
+  "description": "Adds a search form to your site.",
+  "keywords": [
+    "search",
+    "form",
+    "widget"
+  ],
+  "textdomain": "custom-plus",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./index.css",
+  "attributes": {
+    "bgColor": {
+      "type": "string",
+      "default": "#f87171"
+    },
+    "textColor": {
+      "type": "string",
+      "default": "#ffffff"
+    },
+    "buttonText": {
+      "type": "string",
+      "default": "Search"
+    },
+    "buttonBgColor": {
+      "type": "string",
+      "default": "#f87171"
+    },
+    "buttonTextColor": {
+      "type": "string",
+      "default": "#ffffff"
+    }
+  },
+  "example": {
+    "attributes": {
+      "bgColor": "#f87171",
+      "textColor": "#ffffff",
+      "buttonText": "Search",
+      "buttonBgColor": "#f87171",
+      "buttonTextColor": "#ffffff"
+    }
+  }
+}

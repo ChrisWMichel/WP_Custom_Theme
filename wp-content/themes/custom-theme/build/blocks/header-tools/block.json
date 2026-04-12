@@ -1,0 +1,18 @@
+{
+  "$schema": "https://raw.githubusercontent.com/WordPress/gutenberg/trunk/schemas/json/block.json",
+  "apiVersion": 3,
+  "name": "custom-plus/header-tools",
+  "title": "Header Tools",
+  "category": "text",
+  "description": "Adds a header toolbar that contains an authentication link",
+  "textdomain": "custom-plus",
+  "attributes": {
+    "showAuthLink": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./index.css"
+}
