@@ -135,6 +135,16 @@ __webpack_require__.r(__webpack_exports__);
       fill: "#000000",
       d: "M12.634 12.256h-1.268a.51.51 0 0 0-.511.51v1.923a1.145 1.145 0 1 0 2.29 0v-1.922a.51.51 0 0 0-.511-.511"
     })]
+  }),
+  authModal: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "200",
+    height: "200",
+    viewBox: "0 0 32 32",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", {
+      fill: "#000000",
+      d: "M29.307 9.932L26.161 0H5.796L2.692 9.932c-1.802 5.75.042 12.271 5.089 16.021L16.01 32l8.208-6.068c5.005-3.75 6.911-10.25 5.089-16.021l-8.214 6.104l3.12 9.938l-8.208-6.13l-8.208 6.104l3.141-9.911l-8.25-6.063l10.177-.063l3.146-9.891l3.141 9.87z"
+    })
   })
 });
 

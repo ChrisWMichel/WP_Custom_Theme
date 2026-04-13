@@ -37,9 +37,9 @@ registerBlockType('custom-plus/header-tools', {
               />
           </PanelBody>
         </InspectorControls>
-        <div { ...blockProps }>
+        <div className="wp-block-udemy-plus-header-tools" { ...blockProps }>
           { showAuthLink ?
-          <a className="signin-link open-modal" href="#">
+          <a className="signin-link open-modal" href="#signin-modal">
             <div className="signin-icon">
               <i className="bi bi-person-circle"></i>
             </div>

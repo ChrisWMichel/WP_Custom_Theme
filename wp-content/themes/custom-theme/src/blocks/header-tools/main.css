@@ -19,7 +19,7 @@
 }
 .wp-block-udemy-plus-header-tools .signin-link {
   margin-right: 0.5rem;
-  display: flex;
+  display: flex !important;
   align-items: center;
 }
 .wp-block-udemy-plus-header-tools .signin-icon {

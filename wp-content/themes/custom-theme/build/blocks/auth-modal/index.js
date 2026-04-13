@@ -150,10 +150,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ },
 
-/***/ "./src/blocks/header-tools/main.css"
-/*!******************************************!*\
-  !*** ./src/blocks/header-tools/main.css ***!
-  \******************************************/
+/***/ "./src/blocks/auth-modal/main.css"
+/*!****************************************!*\
+  !*** ./src/blocks/auth-modal/main.css ***!
+  \****************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
@@ -289,9 +289,9 @@ module.exports = window["wp"]["i18n"];
 var __webpack_exports__ = {};
 // This entry needs to be wrapped in an IIFE because it needs to be isolated against other modules in the chunk.
 (() => {
-/*!******************************************!*\
-  !*** ./src/blocks/header-tools/index.js ***!
-  \******************************************/
+/*!****************************************!*\
+  !*** ./src/blocks/auth-modal/index.js ***!
+  \****************************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__);
@@ -302,7 +302,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _icons_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../icons.js */ "./src/icons.js");
-/* harmony import */ var _main_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./main.css */ "./src/blocks/header-tools/main.css");
+/* harmony import */ var _main_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./main.css */ "./src/blocks/auth-modal/main.css");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__);
 
@@ -312,64 +312,34 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.registerBlockType)('custom-plus/header-tools', {
+(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.registerBlockType)('custom-plus/auth-modal', {
   icon: {
-    src: _icons_js__WEBPACK_IMPORTED_MODULE_4__["default"].headerTools
+    src: _icons_js__WEBPACK_IMPORTED_MODULE_4__["default"].authModal
   },
   edit({
     attributes,
     setAttributes
   }) {
-    const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)({
-      className: 'wp-block-udemy-plus-header-tools'
-    });
     const {
-      showAuthLink
+      showRegister
     } = attributes;
+    const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)();
     return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
           title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Settings', 'custom-plus'),
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.SelectControl, {
-            label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Show Login/Register Link', 'custom-plus'),
-            value: showAuthLink,
-            options: [{
-              label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Yes', 'custom-plus'),
-              value: true
-            }, {
-              label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('No', 'custom-plus'),
-              value: false
-            }],
-            onChange: newValue => setAttributes({
-              showAuthLink: newValue === 'true'
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ToggleControl, {
+            label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Show Register', 'custom-plus'),
+            checked: showRegister,
+            help: showRegister ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Registration form will be displayed in the modal', 'custom-plus') : (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Hiding registration form', 'custom-plus'),
+            onChange: showRegister => setAttributes({
+              showRegister
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.CheckboxControl, {
-            label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Show Login/Register Link', 'custom-plus'),
-            checked: showAuthLink,
-            onChange: showAuthLink => setAttributes({
-              showAuthLink
-            }),
-            help: showAuthLink ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Login/Register link will be displayed in the header', 'custom-plus') : (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Login/Register link will be hidden in the header', 'custom-plus')
-          })]
+          })
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-        className: "wp-block-udemy-plus-header-tools",
         ...blockProps,
-        children: showAuthLink ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("a", {
-          className: "signin-link open-modal",
-          href: "#signin-modal",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-            className: "signin-icon",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("i", {
-              className: "bi bi-person-circle"
-            })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-            className: "signin-text",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("small", {
-              children: "Hello, Sign in"
-            }), "My Account"]
-          })]
-        }) : null
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('This block is not previewable from the editor. View your site for a live demo.', 'custom-plus')
       })]
     });
   },

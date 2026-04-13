@@ -26,3 +26,5 @@ foreach ( $allFiles as $filename ) {
 }
 
 add_action('init', 'custom_plus_register_blocks');
+add_action('rest_api_init', 'custom_plus_register_api_routes');
+add_action('wp_enqueue_scripts', 'custom_plus_enqueue_frontend_assets');

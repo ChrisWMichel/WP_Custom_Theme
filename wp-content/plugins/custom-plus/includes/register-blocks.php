@@ -27,6 +27,13 @@ function custom_plus_register_blocks() {
                 get_stylesheet_directory() . '/build/blocks/header-tools/block.json',
                 CUSTOM_PLUS_PLUGIN_DIR . 'build/blocks/header-tools/block.json',
             ],
+            'auth-modal' => [
+                'options' => [
+                    'render_callback' => 'custom_plus_render_auth_modal_cb',
+                ],
+                get_stylesheet_directory() . '/build/blocks/auth-modal/block.json',
+                CUSTOM_PLUS_PLUGIN_DIR . 'build/blocks/auth-modal/block.json',
+            ],
     ];
 
     foreach ( $blocks as $block_paths ) {
