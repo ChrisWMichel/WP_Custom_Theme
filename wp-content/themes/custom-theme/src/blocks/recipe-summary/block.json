@@ -1,0 +1,27 @@
+{
+  "$schema": "https://raw.githubusercontent.com/WordPress/gutenberg/trunk/schemas/json/block.json",
+  "apiVersion": 3,
+  "name": "custom-plus/recipe-summary",
+  "title": "Recipe Summary",
+  "category": "text",
+  "description": "Adds a summary section for a recipe",
+  "textdomain": "custom-plus",
+  "attributes": {
+    "prepTime": {
+      "type": "string"
+    },
+    "cookTime": {
+      "type": "string"
+    },
+    "course": {
+      "type": "string"
+    }
+  },
+  "editorScript": "file:./index.js",
+  "style": "file:./index.css",
+  "usesContext": [
+    "postId",
+    "postType"
+  ],
+  "viewScript": "file:./frontend.js"
+}

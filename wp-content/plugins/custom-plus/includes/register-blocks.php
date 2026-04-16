@@ -34,6 +34,13 @@ function custom_plus_register_blocks() {
                 get_stylesheet_directory() . '/build/blocks/auth-modal/block.json',
                 CUSTOM_PLUS_PLUGIN_DIR . 'build/blocks/auth-modal/block.json',
             ],
+            'recipe-summary' => [
+                    'options' => [
+                        'render_callback' => 'custom_plus_render_recipe_summary_cb',
+                    ],
+                get_stylesheet_directory() . '/build/blocks/recipe-summary/block.json',
+                CUSTOM_PLUS_PLUGIN_DIR . 'build/blocks/recipe-summary/block.json',
+            ],
     ];
 
     foreach ( $blocks as $block_paths ) {

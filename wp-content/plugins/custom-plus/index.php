@@ -25,6 +25,15 @@ foreach ( $allFiles as $filename ) {
     require_once $filename;
 }
 
+register_activation_hook( __FILE__, 'custom_plus_activate_plugin' );
+register_deactivation_hook( __FILE__, 'custom_plus_deactivate_plugin' );
 add_action('init', 'custom_plus_register_blocks');
 add_action('rest_api_init', 'custom_plus_register_api_routes');
 add_action('wp_enqueue_scripts', 'custom_plus_enqueue_frontend_assets');
+add_action('init', 'ct_recipe_post_type');
+// Add actions for custom taxonomy fields
+add_action('cuisine_add_form_fields', 'custom_plus_add_cuisine_field');
+add_action('cuisine_edit_form_fields', 'custom_plus_edit_cuisine_field', 10, 2);
+add_action('created_cuisine', 'custom_plus_save_cuisine_field');
+add_action('edited_cuisine', 'custom_plus_save_cuisine_field');
+add_action('save_post_recipe', 'custom_plus_save_post_recipe_meta');
