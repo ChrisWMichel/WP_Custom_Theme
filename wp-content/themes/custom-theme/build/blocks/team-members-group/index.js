@@ -180,10 +180,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ },
 
-/***/ "./src/blocks/page-header/main.css"
-/*!*****************************************!*\
-  !*** ./src/blocks/page-header/main.css ***!
-  \*****************************************/
+/***/ "./src/blocks/team-members-group/main.css"
+/*!************************************************!*\
+  !*** ./src/blocks/team-members-group/main.css ***!
+  \************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
@@ -319,9 +319,9 @@ module.exports = window["wp"]["i18n"];
 var __webpack_exports__ = {};
 // This entry needs to be wrapped in an IIFE because it needs to be isolated against other modules in the chunk.
 (() => {
-/*!*****************************************!*\
-  !*** ./src/blocks/page-header/index.js ***!
-  \*****************************************/
+/*!************************************************!*\
+  !*** ./src/blocks/team-members-group/index.js ***!
+  \************************************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__);
@@ -332,7 +332,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _icons_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../icons.js */ "./src/icons.js");
-/* harmony import */ var _main_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./main.css */ "./src/blocks/page-header/main.css");
+/* harmony import */ var _main_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./main.css */ "./src/blocks/team-members-group/main.css");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__);
 
@@ -342,63 +342,80 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.registerBlockType)('custom-plus/page-header', {
-  icon: _icons_js__WEBPACK_IMPORTED_MODULE_4__["default"].pageHeader,
-  edit: ({
+(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.registerBlockType)('custom-plus/team-members-group', {
+  icon: {
+    src: _icons_js__WEBPACK_IMPORTED_MODULE_4__["default"].teamGroup
+  },
+  edit({
     attributes,
     setAttributes
-  }) => {
+  }) {
     const {
-      content,
-      showCategory
+      columns,
+      imageShape
     } = attributes;
     const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)({
-      className: 'wp-block-udemy-plus-page-header'
+      className: `cols-${columns}`
     });
     return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
-          title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('General Settings', 'custom-plus'),
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ToggleControl, {
-            label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Show Category', 'custom-plus'),
-            checked: showCategory,
-            onChange: showCategory => setAttributes({
-              showCategory
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
+          title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Settings', 'custom-plus'),
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.RangeControl, {
+            label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Columns', 'custom-plus'),
+            onChange: columns => setAttributes({
+              columns
             }),
-            help: showCategory ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Category will be displayed instead of the heading', 'custom-plus') : (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Heading will be displayed instead of the category', 'custom-plus')
-          })
+            value: columns,
+            min: 2,
+            max: 4
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.SelectControl, {
+            label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Image Shape', 'custom-plus'),
+            value: imageShape,
+            options: [{
+              label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Hexagon', 'custom-plus'),
+              value: 'hexagon'
+            }, {
+              label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Rabbet', 'custom-plus'),
+              value: 'rabbet'
+            }, {
+              label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Pentagon', 'custom-plus'),
+              value: 'pentagon'
+            }],
+            onChange: imageShape => setAttributes({
+              imageShape
+            })
+          })]
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
         ...blockProps,
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-          className: "inner-page-header",
-          children: showCategory ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h1", {
-            children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Category: Some Category', 'custom-plus')
-          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText, {
-            tagName: "h1",
-            placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Enter heading...", "custom-plus"),
-            value: content,
-            onChange: content => setAttributes({
-              content
-            })
-          })
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InnerBlocks, {
+          allowedBlocks: ['custom-plus/team-member'],
+          orientation: "horizontal",
+          renderAppender: _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InnerBlocks.ButtonBlockAppender,
+          template: [['custom-plus/team-member', {
+            name: 'John Doe',
+            title: 'CEO',
+            bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+            imageURL: 'https://via.placeholder.com/150',
+            imageShape: 'hexagon'
+          }], ['custom-plus/team-member'], ['custom-plus/team-member']]
         })
       })]
     });
   },
-  save: ({
+  save({
     attributes
-  }) => {
+  }) {
     const {
-      content
+      columns
     } = attributes;
     const blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save({
-      className: "wp-block-udemy-plus-page-header"
+      className: `cols-${columns}`
     });
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText.Content, {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
       ...blockProps,
-      tagName: "h1",
-      value: content
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InnerBlocks.Content, {})
     });
   }
 });

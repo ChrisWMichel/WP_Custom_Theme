@@ -37,3 +37,5 @@ add_action('cuisine_edit_form_fields', 'custom_plus_edit_cuisine_field', 10, 2);
 add_action('created_cuisine', 'custom_plus_save_cuisine_field');
 add_action('edited_cuisine', 'custom_plus_save_cuisine_field');
 add_action('save_post_recipe', 'custom_plus_save_post_recipe_meta');
+add_action('after_setup_theme', 'custom_plus_register_block_styles');
+add_filter('image_size_names_choose', 'custom_plus_custom_image_sizes');

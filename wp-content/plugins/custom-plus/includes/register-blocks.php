@@ -41,6 +41,14 @@ function custom_plus_register_blocks() {
                 get_stylesheet_directory() . '/build/blocks/recipe-summary/block.json',
                 CUSTOM_PLUS_PLUGIN_DIR . 'build/blocks/recipe-summary/block.json',
             ],
+            'team-members-group' => [
+                get_stylesheet_directory() . '/build/blocks/team-members-group/block.json',
+                CUSTOM_PLUS_PLUGIN_DIR . 'build/blocks/team-members-group/block.json',
+            ],
+             'single-team-member' => [
+                get_stylesheet_directory() . '/build/blocks/single-team-member/block.json',
+                CUSTOM_PLUS_PLUGIN_DIR . 'build/blocks/single-team-member/block.json',
+            ],
     ];
 
     foreach ( $blocks as $block_paths ) {
