@@ -17,5 +17,37 @@
     }
   },
   "editorScript": "file:./index.js",
-  "style": "file:./index.css"
+  "style": "file:./index.css",
+  "providesContext": {
+    "custom-plus/image-shape": "imageShape"
+  },
+   "example": {
+    "attributes": {
+      "columns": 2
+    },
+    "innerBlocks": [
+      {
+        "name": "custom-plus/team-member",
+        "attributes": {
+          "Name": "John Doe",
+          "title": "CEO of Custom Plus",
+          "bio": "John has over 20 years of experience in the industry and is passionate about leading our team to success.",
+          "imgURL": "https://images.pexels.com/photos/30976004/pexels-photo-30976004.jpeg?auto=compress&cs=tinysrgb&w=400&lazy=load",
+          "imgAlt": "John Doe"
+        }
+        
+        },
+        {
+          "name": "custom-plus/team-member",
+          "attributes": {
+            "Name": "Jane Smith",
+            "title": "Lead Developer",
+            "bio": "Jane is a skilled developer with a knack for solving complex problems and building innovative solutions.",
+            "imgURL": "https://images.pexels.com/photos/36623006/pexels-photo-36623006.jpeg?auto=compress&cs=tinysrgb&w=400&lazy=load",
+            "imgAlt": "Jane Smith"
+          }
+      }
+    ]
+  }
+ 
 }

@@ -32,7 +32,9 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ function __WEBPACK_DEFAULT_EXPORT__({
   attributes,
-  setAttributes
+  setAttributes,
+  context,
+  isSelected
 }) {
   const {
     name,
@@ -68,6 +70,11 @@ __webpack_require__.r(__webpack_exports__);
     });
     setImgPreview(url);
   };
+  const imageClass = `wp-image-${imgID} img-${context['custom-plus/image-shape']}`;
+  const [activeSocialHandle, setActiveSocialHandle] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_4__.useState)(null);
+  setAttributes({
+    imageShape: context['custom-plus/image-shape']
+  });
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
     children: [imgPreview && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.BlockControls, {
       group: "inline",
@@ -96,7 +103,7 @@ __webpack_require__.r(__webpack_exports__);
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.InspectorControls, {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
         title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Settings', 'custom-plus'),
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextareaControl, {
+        children: !imgPreview && !(0,_wordpress_blob__WEBPACK_IMPORTED_MODULE_3__.isBlobURL)(imgPreview) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextareaControl, {
           label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Alt Attribute', 'custom-plus'),
           value: imgAlt,
           onChange: imgAlt => setAttributes({
@@ -111,7 +118,8 @@ __webpack_require__.r(__webpack_exports__);
         className: "author-meta",
         children: [imgPreview && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
           src: imgPreview,
-          alt: imgAlt
+          alt: imgAlt,
+          className: imageClass
         }), (0,_wordpress_blob__WEBPACK_IMPORTED_MODULE_3__.isBlobURL)(imgPreview) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Spinner, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.MediaPlaceholder, {
           onSelect: selectImg,
           allowedTypes: ['image'],
@@ -152,8 +160,81 @@ __webpack_require__.r(__webpack_exports__);
           }),
           value: bio
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-        className: "social-links"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+        className: "social-links",
+        children: [(socialHandles || []).map((handle, index) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("a", {
+          onClick: e => {
+            e.preventDefault();
+            setActiveSocialHandle(activeSocialHandle === index ? null : index);
+          },
+          href: handle.url,
+          target: "_blank",
+          rel: "noopener noreferrer",
+          className: activeSocialHandle === index && isSelected ? 'is-active' : '',
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("i", {
+            className: `bi bi-${handle.icon}`
+          })
+        }, handle.id)), isSelected && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Tooltip, {
+          text: "Add Social Media Handle",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("a", {
+            href: "#",
+            onClick: e => {
+              e.preventDefault();
+              setAttributes({
+                socialHandles: [...(socialHandles || []), {
+                  icon: 'question',
+                  url: ''
+                }]
+              });
+              setActiveSocialHandle(socialHandles.length);
+            },
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("i", {
+              className: "bi bi-plus"
+            })
+          })
+        })]
+      }), isSelected && activeSocialHandle !== null && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+        className: "team-member-social-edit-ctr",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+          label: "URL",
+          value: socialHandles[activeSocialHandle].url,
+          onChange: url => {
+            const tempLink = {
+              ...socialHandles[activeSocialHandle]
+            };
+            const tempSocial = [...socialHandles];
+            tempLink.url = url;
+            tempSocial[activeSocialHandle] = tempLink;
+            setAttributes({
+              socialHandles: tempSocial
+            });
+          }
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+          label: "ICON",
+          value: socialHandles[activeSocialHandle].icon,
+          onChange: icon => {
+            const tempLink = {
+              ...socialHandles[activeSocialHandle]
+            };
+            const tempSocial = [...socialHandles];
+            tempLink.icon = icon;
+            tempSocial[activeSocialHandle] = tempLink;
+            setAttributes({
+              socialHandles: tempSocial
+            });
+          }
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
+          isDestructive: true,
+          onClick: () => {
+            const tempCopy = [...socialHandles];
+            tempCopy.splice(activeSocialHandle, 1);
+            setAttributes({
+              socialHandles: tempCopy
+            });
+            setActiveSocialHandle(null);
+          },
+          children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Remove', 'custom-plus')
+        })]
       })]
     })]
   });
@@ -194,11 +275,13 @@ __webpack_require__.r(__webpack_exports__);
     imageShape
   } = attributes;
   const blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps.save();
+  const imageClass = `wp-image-${imgID} img-${imageShape}`;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
     ...blockProps,
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-      class: "author-meta",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
+      className: "author-meta",
+      children: [imgURL && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
+        className: imageClass,
         src: imgURL,
         alt: imgAlt
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("p", {
@@ -211,13 +294,22 @@ __webpack_require__.r(__webpack_exports__);
         })]
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-      class: "member-bio",
+      className: "member-bio",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.RichText.Content, {
         tagName: "p",
         value: bio
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-      class: "social-links"
+      className: "social-links",
+      children: (socialHandles || []).map(handle => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+        href: handle.url,
+        target: "_blank",
+        rel: "noopener noreferrer",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
+          className: `bi bi-${handle.icon}`,
+          "data-icon": handle.icon
+        })
+      }, handle.id))
     })]
   });
 }

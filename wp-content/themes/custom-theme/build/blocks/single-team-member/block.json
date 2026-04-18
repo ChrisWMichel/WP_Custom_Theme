@@ -8,13 +8,19 @@
   "textdomain": "custom-plus",
   "attributes": {
     "name": {
-      "type": "string"
+      "type": "string",
+      "source": "html",
+      "selector": ".author-meta strong"
     },
     "title": {
-      "type": "string"
+      "type": "string",
+      "source": "html",
+      "selector": ".author-meta span"
     },
     "bio": {
-      "type": "string"
+      "type": "string",
+      "source": "html",
+      "selector": ".member-bio p"
     },
     "imgID": {
       "type": "number",
@@ -22,15 +28,58 @@
     },
     "imgAlt": {
       "type": "string",
-      "default": ""
+      "default": "",
+      "source": "attribute",
+      "selector": "img",
+      "attribute": "alt"
     },
     "imgURL": {
-      "type": "string"
+      "type": "string",
+      "source": "attribute",
+      "selector": "img",
+      "attribute": "src"
     },
     "socialHandles": {
-      "type": "array"
+      "type": "array",
+      "default": [
+        {
+          "id": "facebook",
+          "url": "https://www.facebook.com/",
+          "icon": "facebook"
+        },
+        {
+          "id": "instagram",
+          "url": "https://www.instagram.com/",
+          "icon": "instagram"
+        }
+      ],
+      "source": "query",
+      "selector": ".social-links a",
+      "query": {
+        "id": {
+          "source": "attribute",
+          "attribute": "class",
+          "selector": "i"
+        },
+        "url": {
+          "source": "attribute",
+          "attribute": "href"
+        },
+        "icon": {
+          "source": "attribute",
+          "attribute": "data-icon",
+          "selector": "i"
+        }
+      }
+    },
+    "imageShape": {
+      "type": "string",
+      "default": "hexagon"
     }
   },
   "editorScript": "file:./index.js",
-  "style": "file:./index.css"
+  "style": "file:./index.css",
+  "usesContext": [
+    "custom-plus/image-shape"
+  ]
 }

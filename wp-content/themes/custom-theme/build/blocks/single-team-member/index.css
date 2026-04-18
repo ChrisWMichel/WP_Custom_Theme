@@ -56,6 +56,9 @@
   font-size: 1.25rem;
   line-height: 1.75rem;
 }
+.wp-block-custom-plus-team-member .social-links a::before {
+  content: none !important;
+}
 .wp-block-custom-plus-team-member .member-bio > p {
   margin-top: 1rem;
   margin-bottom: 1rem;
