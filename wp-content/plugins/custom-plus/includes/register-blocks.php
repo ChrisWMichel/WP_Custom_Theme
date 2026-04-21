@@ -56,6 +56,13 @@ function custom_plus_register_blocks() {
                 get_stylesheet_directory() . '/build/blocks/popular-recipes/block.json',
                 CUSTOM_PLUS_PLUGIN_DIR . 'build/blocks/popular-recipes/block.json',
             ],
+                'daily-recipe' => [
+                    'options' => [
+                        'render_callback' => 'custom_plus_render_daily_recipe_cb',
+                    ],
+                    get_stylesheet_directory() . '/build/blocks/daily-recipe/block.json',
+                    CUSTOM_PLUS_PLUGIN_DIR . 'build/blocks/daily-recipe/block.json',
+                ],
     ];
 
     foreach ( $blocks as $block_paths ) {
