@@ -39,3 +39,4 @@ add_action('edited_cuisine', 'custom_plus_save_cuisine_field');
 add_action('save_post_recipe', 'custom_plus_save_post_recipe_meta');
 add_action('after_setup_theme', 'custom_plus_register_block_styles');
 add_filter('image_size_names_choose', 'custom_plus_custom_image_sizes');
+add_filter('rest_recipe_query', 'custom_plus_modify_rest_recipe_query', 10, 2);

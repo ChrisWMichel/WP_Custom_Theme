@@ -80,3 +80,18 @@ function ct_recipe_post_type() {
         'default' => 0,
     ));
 }
+
+add_filter('rest_recipe_collection_params', function($params) {
+    $params['orderby']['enum'][] = 'meta_value_num';
+    $params['orderby']['enum'][] = 'meta_value';
+    return $params;
+});
+
+add_filter('rest_recipe_query', function($args, $request) {
+    $orderby = $request->get_param('orderby');
+    if ($orderby === 'meta_value_num' || $orderby === 'meta_value') {
+        $args['orderby']  = $orderby;
+        $args['meta_key'] = $request->get_param('meta_key');
+    }
+    return $args;
+}, 10, 2);

@@ -49,6 +49,13 @@ function custom_plus_register_blocks() {
                 get_stylesheet_directory() . '/build/blocks/single-team-member/block.json',
                 CUSTOM_PLUS_PLUGIN_DIR . 'build/blocks/single-team-member/block.json',
             ],
+            'popular-recipes' => [
+                'options' => [
+                    'render_callback' => 'custom_plus_render_popular_recipes_cb',
+                ],
+                get_stylesheet_directory() . '/build/blocks/popular-recipes/block.json',
+                CUSTOM_PLUS_PLUGIN_DIR . 'build/blocks/popular-recipes/block.json',
+            ],
     ];
 
     foreach ( $blocks as $block_paths ) {
