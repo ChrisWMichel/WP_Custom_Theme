@@ -28,3 +28,20 @@ function create_block_alert_box_block_init() {
 	wp_register_block_types_from_metadata_collection( __DIR__ . '/build', __DIR__ . '/build/blocks-manifest.php' );
 }
 add_action( 'init', 'create_block_alert_box_block_init' );
+
+function alert_box_register_assets() {
+	wp_register_style(
+		'alert-box-admin-styles',
+		plugins_url( '/build/admin/index.css', __FILE__ ),
+		[],
+		'1.0.0'
+	);
+	wp_register_script(
+		'alert-box-admin-scripts',
+		plugins_url( '/build/admin/index.js', __FILE__ ),
+		[],
+		'1.0.0',
+		true
+	);
+}
+add_action( 'init', 'alert_box_register_assets' );

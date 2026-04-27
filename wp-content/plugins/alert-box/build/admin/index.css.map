@@ -1,0 +1,1 @@
+{"version":3,"file":"admin/index.css","mappings":";;;AAAA;CACC,cAAc;CACd,gBAAgB;CAChB,mBAAmB;AACpB","sources":["webpack://alert-box/./src/admin/main.css"],"sourcesContent":["#og-img-preview{\n\tdisplay: block;\n\tmax-width: 600px;\n\tmargin-bottom: 20px;\n}\n"],"names":[],"sourceRoot":""}

@@ -21,5 +21,6 @@
 	},
 	"devDependencies": {
 		"@wordpress/scripts": "^32.0.0"
-	}
+	},
+	"type":"module"
 }

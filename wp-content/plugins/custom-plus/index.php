@@ -15,7 +15,9 @@ if(!function_exists('add_action')) {
 }
 
 define('CUSTOM_PLUS_VERSION', '1.0.0');
+define('CUSTOM_PLUS_PLUGIN_FILE', __FILE__);
 define('CUSTOM_PLUS_PLUGIN_DIR', plugin_dir_path(__FILE__));
+define('CUSTOM_PLUS_PLUGIN_URL', plugin_dir_url(__FILE__));
 
 $rootFiles = glob(CUSTOM_PLUS_PLUGIN_DIR . 'includes/*.php');
 $subdirectory = glob(CUSTOM_PLUS_PLUGIN_DIR . 'includes/**/*.php', GLOB_BRACE);
@@ -40,3 +42,7 @@ add_action('save_post_recipe', 'custom_plus_save_post_recipe_meta');
 add_action('after_setup_theme', 'custom_plus_register_block_styles');
 add_filter('image_size_names_choose', 'custom_plus_custom_image_sizes');
 add_filter('rest_recipe_query', 'custom_plus_modify_rest_recipe_query', 10, 2);
+add_action('admin_menu', 'custom_plus_add_admin_menu');
+add_action('admin_post_save_cp_plugin_options', 'custom_plus_save_plugin_options');
+add_action('admin_enqueue_scripts', 'custom_plus_enqueue_admin_assets');
+add_action('init', 'custom_plus_register_assets');
