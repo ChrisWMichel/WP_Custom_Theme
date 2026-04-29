@@ -24,21 +24,6 @@ function custom_plus_activate_plugin() {
 
     require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
     dbDelta( $sql );
-
-    $options = get_option( 'custom_plus_plugin_options' );
-    if ( ! $options ) {
-        add_option( 'custom_plus_plugin_options', [
-            'og_title' => get_bloginfo( 'name' ),
-            'og_img' => '',
-            'og_desc' => get_bloginfo( 'description' ),
-            'enable_og' => 1
-        ] );
-        $default_options = [
-            'enable_favorite_recipes' => true,
-            'enable_recipe_ratings' => true,
-        ];
-        update_option( 'custom_plus_plugin_options', $default_options );
-    }
 }
 
 function custom_plus_deactivate_plugin() {
